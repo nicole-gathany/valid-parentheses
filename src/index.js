@@ -82,22 +82,68 @@ var isValid = function(s) {
   if (openParaFreq !== closedParaFreq) {
     result = false;
   }
+  let openBrackArr = [];
+  let closedBrackArr = [];
+  let openParaArr = [];
+  let closedParaArr = [];
+  let openCurlyArr = [];
+  let closedCurlyArr = [];
+
+  for (let i = 0; i < s.length; i++) {
+    if (s.charAt(i) === "[") {
+      openBrackArr.push(i);
+    }
+    if (s.charAt(i) === "]") {
+      closedBrackArr.push(i);
+    }
+    if (s.charAt(i) === "(") {
+      openParaArr.push(i);
+    }
+    if (s.charAt(i) === ")") {
+      closedParaArr.push(i);
+    }
+    if (s.charAt(i) === "{") {
+      openCurlyArr.push(i);
+    }
+    if (s.charAt(i) === "}") {
+      closedCurlyArr.push("}");
+    }
+  }
+  if (openBrackFreq !== 0) {
+    console.log("[ are at indexes " + openBrackArr + " for " + s);
+  }
+  if (closedBrackFreq !== 0) {
+    console.log("] are at indexes " + closedBrackArr + " for " + s);
+  }
+  if (openParaFreq !== 0) {
+    console.log("( are at " + openParaArr + " for " + s);
+  }
+  if (closedParaFreq !== 0) {
+    console.log(") are at " + closedParaArr + " for " + s);
+  }
+  if (openCurlyFreq !== 0) {
+    console.log("{ brackets are at " + openCurlyArr);
+  }
+  if (closedCurlyFreq !== 0) {
+    console.log("} Closed curly brackets are at " + closedCurlyArr);
+  }
 
   return result;
 };
 
-console.log(isValid("()") + " should return true");
-console.log(isValid("[](){}") + " should return true");
-console.log(isValid("(]") + " should return false");
+// console.log(isValid("()") + " should return true");
+// console.log(isValid("[](){}") + " should return true");
+// console.log(isValid("(]") + " should return false");
 //control for this case
 // if "]" comes after "(" or "["
 //if ")" comes after "[" or "{"
 //if "}" comes after "[" or "("
-console.log(isValid("([)]") + " should return false");
-console.log(isValid("{[]}") + " should return true");
-console.log(isValid("(()(") + " should return false");
-//did not work for this case
-console.log(isValid("[(({})}]") + " should be false");
+// console.log(isValid("([)]") + " should return false");
+// console.log(isValid("{[]}") + " should return true");
+// console.log(isValid("(()(") + " should return false");
+// //did not work for this case
+// console.log(isValid("[(({})}]") + " should be false");
 //did not work for this case
 //i need to think about this case more
+//i'm thinking a palindrome test could work but they don't need to be palindromes to be true
 console.log(isValid("[([]])") + " should return false");
