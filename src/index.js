@@ -109,32 +109,55 @@ var isValid = function(s) {
       closedCurlyArr.push("}");
     }
   }
-  if (openBrackFreq !== 0) {
-    console.log("[ are at indexes " + openBrackArr + " for " + s);
+  //shows the difference between each closing and opening bracket
+  let squareDiff = [];
+  if (
+    openBrackFreq !== 0 &&
+    closedBrackFreq !== 0 &&
+    openBrackFreq === closedBrackFreq
+  ) {
+    // console.log(closedBrackArr);
+    // console.log(openBrackArr);
+    // console.log(arr);
+    for (let i = 0; i < openBrackFreq; i++) {
+      squareDiff.push(closedBrackArr[openBrackFreq - 1 - i] - openBrackArr[i]);
+    }
   }
-  if (closedBrackFreq !== 0) {
-    console.log("] are at indexes " + closedBrackArr + " for " + s);
+  let paraDiff = [];
+  if (
+    openParaFreq !== 0 &&
+    closedParaFreq !== 0 &&
+    openParaFreq === closedParaFreq
+  ) {
+    for (let i = 0; i < openParaFreq; i++) {
+      paraDiff.push(closedParaArr[openParaFreq - 1 - i] - openParaArr[i]);
+    }
   }
-  if (openParaFreq !== 0) {
-    console.log("( are at " + openParaArr + " for " + s);
+  let curlyDiff = [];
+  if (
+    openCurlyFreq !== 0 &&
+    closedCurlyFreq !== 0 &&
+    openCurlyFreq === closedCurlyFreq
+  ) {
+    for (let i = 0; i < openCurlyFreq; i++) {
+      curlyDiff.push(closedCurlyArr[openCurlyFreq - 1 - i] - openCurlyArr[i]);
+    }
   }
-  if (closedParaFreq !== 0) {
-    console.log(") are at " + closedParaArr + " for " + s);
-  }
-  if (openCurlyFreq !== 0) {
-    console.log("{ brackets are at " + openCurlyArr);
-  }
-  if (closedCurlyFreq !== 0) {
-    console.log("} Closed curly brackets are at " + closedCurlyArr);
-  }
+  console.log(arr);
+  console.log(squareDiff);
+  console.log(paraDiff);
+  console.log(curlyDiff);
 
+  // if(squareDiff.every(x => x%2 ===0) ===false && openBrackArr !==0){result =false}
+  // if(paraDiff.every(x => x%2 ===0)===false){result =false}
+  // if(curlyDiff.every(x =>x%2 ===0)===false){result =false}
   return result;
 };
 
-// console.log(isValid("()") + " should return true");
-// console.log(isValid("[](){}") + " should return true");
-// console.log(isValid("(]") + " should return false");
-//control for this case
+console.log(isValid("()") + " should return true");
+console.log(isValid("[](){}") + " should return true");
+console.log(isValid("(]") + " should return false");
+// control for this case
 // if "]" comes after "(" or "["
 //if ")" comes after "[" or "{"
 //if "}" comes after "[" or "("
