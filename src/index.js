@@ -14,12 +14,35 @@ var isValid = function(s) {
   ) {
     result = false;
   }
-
-  console.log(result);
+  for (let i = 0; i < s.length; i++) {
+    if (s.charAt(i) === "(" && s.charAt(i + 1) === "]") {
+      result = false;
+    }
+    if (s.charAt(i) === "(" && s.charAt(i + 1) === "}") {
+      result = false;
+    }
+    if (s.charAt(i) === "[" && s.charAt(i + 1) === "}") {
+      result = false;
+    }
+    if (s.charAt(i) === "[" && s.charAt(i + 1) === ")") {
+      result = false;
+    }
+    if (s.charAt(i) === "{" && s.charAt(i + 1) === ")") {
+      result = false;
+    }
+    if (s.charAt(i) === "{" && s.charAt(i + 1) === "]") {
+      result = false;
+    }
+  }
+  return result;
 };
 
-isValid("()");
-isValid("[](){}");
-isValid("(]");
-isValid("([)]");
-isValid("{[]}");
+console.log(isValid("()") + " should return true");
+console.log(isValid("[](){}") + " should return true");
+console.log(isValid("(]") + " should return false");
+//control for this case
+// if "]" comes after "(" or "["
+//if ")" comes after "[" or "{"
+//if "}" comes after "[" or "("
+console.log(isValid("([)]") + " should return false");
+console.log(isValid("{[]}") + " should return true");
