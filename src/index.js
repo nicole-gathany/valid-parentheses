@@ -14,12 +14,9 @@ var isValid = function(s) {
 
   //cases where it opens but doesn't close
   if (
-    (isOpenBraket === true && isClosedBraket === false) ||
-    (isOpenBraket === false && isClosedBraket === true) ||
-    (isOpenPara === true && isClosedPara === false) ||
-    (isOpenPara === false && isClosedPara === true) ||
-    (isOpenCurly === true && isClosedCurly === false) ||
-    (isOpenCurly === false && isOpenCurly === true)
+    isOpenBraket !== isClosedBraket ||
+    isOpenPara !== isClosedPara ||
+    isOpenCurly !== isClosedCurly
   ) {
     result = false;
   }
