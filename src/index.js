@@ -49,36 +49,38 @@ var isValid = function(s) {
   let openCurlyFreq = 0;
   let closedCurlyFreq = 0;
 
-  for (let i = 0; i < s.length; i++) {
-    if (s.charAt(i) === "[") {
+  let arr = s.split("");
+  console.log(arr);
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === "[") {
       openBrackFreq++;
     }
-    if (s.charAt(i) === "]") {
+    if (arr[i] === "]") {
       closedBrackFreq++;
     }
-    if (s.charAt(i) === "(") {
+    if (arr[i] === "(") {
       openParaFreq++;
     }
-    if (s.charAt(i) === ")") {
+    if (arr[i] === ")") {
       closedParaFreq++;
     }
-    if (s.charAt(i) === "{") {
+    if (arr[i] === "{") {
       openCurlyFreq++;
     }
-    if (s.charAt(i) === "}") {
+    if (arr[i] === "}") {
       closedCurlyFreq++;
     }
-    //i'm scared
-    //this doesn't work
-    if (openBrackFreq !== closedBrackFreq) {
-      result = false;
-    }
-    if (openCurlyFreq !== closedCurlyFreq) {
-      result = false;
-    }
-    if (openParaFreq !== closedParaFreq) {
-      result = false;
-    }
+  }
+  //i'm scared
+  //i think it didn't work because i didn't close the curly braces at the right place
+  if (openBrackFreq !== closedBrackFreq) {
+    result = false;
+  }
+  if (openCurlyFreq !== closedCurlyFreq) {
+    result = false;
+  }
+  if (openParaFreq !== closedParaFreq) {
+    result = false;
   }
 
   return result;
