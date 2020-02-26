@@ -5,18 +5,12 @@ var isValid = function(s) {
   if (s.charAt(0) === ")" || (s.charAt(0) === "]") | (s.charAt(0) === "}")) {
     result = false;
   }
-  let isOpenPara = s.includes("(");
-  let isClosedPara = s.includes(")");
-  let isOpenCurly = s.includes("{");
-  let isClosedCurly = s.includes("}");
-  let isOpenBraket = s.includes("[");
-  let isClosedBraket = s.includes("]");
 
   //cases where it opens but doesn't close
   if (
-    isOpenBraket !== isClosedBraket ||
-    isOpenPara !== isClosedPara ||
-    isOpenCurly !== isClosedCurly
+    s.includes("(") !== s.includes(")") ||
+    s.includes("{") !== s.includes("}") ||
+    s.includes("[") !== s.includes("]")
   ) {
     result = false;
   }
