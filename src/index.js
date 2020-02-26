@@ -41,7 +41,6 @@ var isValid = function(s) {
       result = false;
     }
   }
-  return result;
 
   let openBrackFreq = 0;
   let closedBrackFreq = 0;
@@ -49,6 +48,17 @@ var isValid = function(s) {
   let closedParaFreq = 0;
   let openCurlyFreq = 0;
   let closedCurlyFreq = 0;
+
+  for (let i = 0; i < s.length; i++) {
+    if (s.charAt(i) === "(") {
+      openBrackFreq++;
+    }
+    if (s.charAt(i) === "(") {
+      closedBrackFreq++;
+    }
+  }
+
+  return result;
 };
 
 console.log(isValid("()") + " should return true");
