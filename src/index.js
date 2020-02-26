@@ -99,4 +99,5 @@ console.log(isValid("(()(") + " should return false");
 //did not work for this case
 console.log(isValid("[(({})}]") + " should be false");
 //did not work for this case
+//i need to think about this case more
 console.log(isValid("[([]])") + " should return false");
