@@ -5,7 +5,14 @@ var isValid = function(s) {
   if (s.charAt(0) === ")" || (s.charAt(0) === "]") | (s.charAt(0) === "}")) {
     result = false;
   }
-
+  //if the last index is open
+  if (
+    s.charAt(s.length - 1) === "(" ||
+    s.charAt(s.length - 1) === "[" ||
+    s.charAt(s.length - 1) === "{"
+  ) {
+    result = false;
+  }
   //cases where it opens but doesn't close
   if (
     s.includes("(") !== s.includes(")") ||
@@ -46,3 +53,4 @@ console.log(isValid("(]") + " should return false");
 //if "}" comes after "[" or "("
 console.log(isValid("([)]") + " should return false");
 console.log(isValid("{[]}") + " should return true");
+console.log(isValid("(()(") + " should return false");
