@@ -50,7 +50,7 @@ var isValid = function(s) {
   let closedCurlyFreq = 0;
 
   let arr = s.split("");
-  console.log(arr);
+  // console.log(arr);
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] === "[") {
       openBrackFreq++;
@@ -98,3 +98,5 @@ console.log(isValid("{[]}") + " should return true");
 console.log(isValid("(()(") + " should return false");
 //did not work for this case
 console.log(isValid("[(({})}]") + " should be false");
+//did not work for this case
+console.log(isValid("[([]])") + " should return false");
