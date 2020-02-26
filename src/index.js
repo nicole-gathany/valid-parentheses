@@ -50,11 +50,34 @@ var isValid = function(s) {
   let closedCurlyFreq = 0;
 
   for (let i = 0; i < s.length; i++) {
-    if (s.charAt(i) === "(") {
+    if (s.charAt(i) === "[") {
       openBrackFreq++;
     }
-    if (s.charAt(i) === "(") {
+    if (s.charAt(i) === "]") {
       closedBrackFreq++;
+    }
+    if (s.charAt(i) === "(") {
+      openParaFreq++;
+    }
+    if (s.charAt(i) === ")") {
+      closedParaFreq++;
+    }
+    if (s.charAt(i) === "{") {
+      openCurlyFreq++;
+    }
+    if (s.charAt(i) === "}") {
+      closedCurlyFreq++;
+    }
+    //i'm scared
+    //this doesn't work
+    if (openBrackFreq !== closedBrackFreq) {
+      result = false;
+    }
+    if (openCurlyFreq !== closedCurlyFreq) {
+      result = false;
+    }
+    if (openParaFreq !== closedParaFreq) {
+      result = false;
     }
   }
 
