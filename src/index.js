@@ -42,6 +42,13 @@ var isValid = function(s) {
     }
   }
   return result;
+
+  let openBrackFreq = 0;
+  let closedBrackFreq = 0;
+  let openParaFreq = 0;
+  let closedParaFreq = 0;
+  let openCurlyFreq = 0;
+  let closedCurlyFreq = 0;
 };
 
 console.log(isValid("()") + " should return true");
@@ -54,3 +61,5 @@ console.log(isValid("(]") + " should return false");
 console.log(isValid("([)]") + " should return false");
 console.log(isValid("{[]}") + " should return true");
 console.log(isValid("(()(") + " should return false");
+//did not work for this case
+console.log(isValid("[(({})}]") + " should be false");
